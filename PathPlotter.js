@@ -44,6 +44,7 @@ function getSubPoint(x1, y1, x2, y2, percent) {
 //==================================================
 //button events
 function save() {
+    path.splice(0, 0, Math.round(PIXELS_PER_INCH*100)/100);
     pathString = path.join(",");
     splitLines = str => str.split(/\r?\,/);
     data = splitLines(pathString)

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PathPlotter</title>
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+	<body onload="start()">
+		<canvas id="canvas"></canvas>
+		<script src="PathPlotter.js"></script>
+        <input type="text" id="filename" placeholder="new path"></input>
+        <button name="save" onclick="save()">Save</button>
+        <button name="delete" onclick="remove()">Delete</button>
+        <button name="clear" onclick="clearPath()">Clear All</button>
+	</body>
+</html>

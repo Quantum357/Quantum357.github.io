@@ -1,0 +1,44 @@
+#main {
+    display: table;
+}
+
+body {
+    background-color: #222222;
+}
+
+button {
+    background-color: #303030;
+    color: #808080;
+}
+
+input {
+    background-color: #303030;
+    color: #808080;
+    font-style: italic;
+}
+
+h2, h3, p {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.column1 {
+    padding: 10px;
+    background-color: #303030;
+    border-radius: 10px;
+    float: left;
+
+}
+
+.column2 {
+    padding: 10px;
+    background-color: #303030;
+    border-radius: 10px;
+    float: right;
+    width: 35%;
+}

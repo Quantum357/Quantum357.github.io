@@ -47,7 +47,7 @@ function save() {
     path.splice(0, 0, Math.round(PIXELS_PER_INCH*100)/100);
     pathString = path.join(",");
     splitLines = str => str.split(/\r?\,/);
-    data = splitLines(pathString)
+    data = splitLines(pathString);
     download(document.getElementById("filename").value, data);
 }
 
@@ -78,6 +78,8 @@ function remove() {
 function clearPath() {
     path = [];
 }
+
+//==================================================
 
 function update() {
     //reset canvas

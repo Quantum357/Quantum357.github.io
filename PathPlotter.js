@@ -12,23 +12,55 @@ var mouseReleased = true;
 var selectedNode = 0;
 var draggingNode = false;
 
+var snapNodesToGrid = false;
+var gridWidth;
+var gridHeight;
+
 function start() {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
     PIXELS_PER_INCH = backgroundImg.width / 360;
 
-    canvas.addEventListener('mousemove', (event) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
+    document.addEventListener('mousemove', (event) => {
+        mouseX = event.clientX-17;
+        mouseY = event.clientY-17;
+
+        if (snapNodesToGrid) {
+            gridWidth = document.getElementById("gridWidth").value;
+            gridHeight = document.getElementById("gridHeight").value;
+            
+            if (gridWidth > 0 && gridHeight > 0) {
+                mouseX = Math.round(mouseX / (backgroundImg.width / gridWidth)) * (backgroundImg.width / gridWidth);
+                mouseY = Math.round(mouseY / (backgroundImg.height / gridHeight)) * (backgroundImg.height / gridHeight);
+            }
+        }
     });
 
-    canvas.addEventListener('mousedown', (event) => {
+    document.addEventListener('mousedown', (event) => {
         mousedown = true;
     });
 
-    canvas.addEventListener('mouseup', (event) => {
+    document.addEventListener('mouseup', (event) => {
         mousedown = false;
+    });
+
+    document.addEventListener('keydown', (event) => {
+        event.preventDefault();
+        switch (event.key) {
+            case 'Control':
+                snapNodesToGrid = true;
+                break;
+        }
+    });
+
+    document.addEventListener('keyup', (event) => {
+        event.preventDefault();
+        switch (event.key) {
+            case 'Control':
+                snapNodesToGrid = false;
+                break;
+        }
     });
 }
 
@@ -135,21 +167,24 @@ function update() {
     if (path.length > 0) {
         ctx.beginPath();
         ctx.fillStyle = "BLACK";
-        ctx.moveTo(path[0][0]-6, path[0][1]-6);
+        ctx.moveTo(path[0][0]-6, path[0][1]);
         for (i=1; i < path.length; i++) {
-            ctx.lineTo(path[i][0]-6, path[i][1]-6);
+            ctx.lineTo(path[i][0], path[i][1]);
         }
         ctx.stroke();
 
         for (i=0; i < path.length; i++) {
             if (i == selectedNode) {
-                ctx.fillStyle = "RED";
+                ctx.fillStyle = "ORANGE";
             } else {
                 ctx.fillStyle = "BLACK";
             }
-            ctx.fillRect(path[i][0]-12, path[i][1]-12, 10, 10);
+            ctx.fillRect(path[i][0]-5, path[i][1]-5, 10, 10);
         }
     }
+
+    ctx.fillStyle = "YELLOW"
+    ctx.fillRect(mouseX-5, mouseY-5, 10, 10);
 }
 
 setInterval(update, 1000 / FPS);

@@ -17,6 +17,10 @@ input {
     font-style: italic;
 }
 
+input[type=number] {
+    width: 50px;
+}
+
 h2, h3, p {
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;

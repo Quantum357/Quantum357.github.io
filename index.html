@@ -12,7 +12,9 @@
 			<div class = column1>
 				<canvas id="canvas"></canvas>
 				<div>
-					<input type="text" id="filename" placeholder="new path"></input>
+					<input type="number" min="0" id="gridWidth" value="12"></input>
+					<input type="number" min="0" id="gridHeight" value="6"></input>
+					<input type="text" id="filename" placeholder="new path.txt"></input>
 					<button name="save" onclick="save()">Save</button>
 					<button name="delete" onclick="remove()">Delete</button>
 					<button name="clear" onclick="clearPath()">Clear All</button>
@@ -30,9 +32,10 @@
 					How To Use
 				</h3>
 				<p>
-					Click to place, select, and move points on the field.  <br>
-					To save a path, enter a name in the text field, and click save. <br>
-					Clicking delete will delete the last selected node, whereas clicking clear will delete all points.
+					Click to place, select, and move points on the field.  <br> <br>
+					To save a path, enter a name in the text field, and click save. <br> <br>
+					Clicking delete will delete the last selected node, whereas clicking clear will delete all points. <br> <br>
+					Hold Ctrl to snap points to the nearest grid point.
 				</p>
 			</div>
 		</div>

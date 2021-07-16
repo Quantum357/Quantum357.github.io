@@ -1,5 +1,9 @@
 #main {
-    display: table;
+    display: block;
+    padding: 10px;
+    background-color: #303030;
+    border-radius: 10px;
+    min-height:505px;
 }
 
 body {
@@ -19,6 +23,21 @@ input {
 
 input[type=number] {
     width: 50px;
+    float: inline-start;
+}
+
+#input {
+    width: auto;
+    margin: auto;
+    float: right;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 50px;
+    margin: 0%;
 }
 
 h2, h3, p {
@@ -31,18 +50,28 @@ h2, h3 {
     text-align: center;
 }
 
-.column1 {
-    padding: 10px;
-    background-color: #303030;
-    border-radius: 10px;
+#canvas {
+    width: auto;
+    margin: auto;
     float: left;
-
 }
 
-.column2 {
+.info {
     padding: 10px;
     background-color: #303030;
     border-radius: 10px;
-    float: right;
-    width: 35%;
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.link {
+    color: #808080;
+    padding: 10px;
+    text-align: center; 
+}
+
+#link {
+    color: #808080;
+    width: 100%;
 }

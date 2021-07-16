@@ -1,46 +1,34 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>PathPlotter</title>
-		<link rel="stylesheet" href="style.css">
-		
-	</head>
-	<body onload="start()">
-		<script src="PathPlotter.js"></script>
 
-		<div id = main>
-			<div class = column1>
-				<canvas id="canvas"></canvas>
-				<div>
-					<input type="number" min="0" id="gridWidth" value="12"></input>
-					<input type="number" min="0" id="gridHeight" value="6"></input>
-					<input type="text" id="filename" placeholder="new path.txt"></input>
-					<button name="save" onclick="save()">Save</button>
-					<button name="delete" onclick="remove()">Delete</button>
-					<button name="clear" onclick="clearPath()">Clear All</button>
-				</div>
-			</div>
+<head>
+	<title>PathPlotter</title>
+	<link rel="stylesheet" href="style.css">
 
-			<div class = column2>
-				<h2>
-					PathPlotter
-				</h2>
-				<p>
-					PathPlotter is a simple program to create a readable path of points designed for FRC Autonomous programming.
-				</p>
-				<h3>
-					How To Use
-				</h3>
-				<p>
-					Click to place, select, and move points on the field.  <br> <br>
-					To save a path, enter a name in the text field, and click save. <br> <br>
-					Clicking delete will delete the last selected node, whereas clicking clear will delete all points. <br> <br>
-					Hold Ctrl to snap points to the nearest grid point.
-				</p>
-			</div>
+</head>
+
+<body onload="start()">
+	<h1>PathPlotter</h1>
+	<div class="link">
+		<a href="index.html" id="link">PathPlotter</a> | <a href="about/index.html" id="link">About</a>
+	</div>
+	<script src="PathPlotter.js"></script>
+
+	<div id=main>
+		<canvas id="canvas"></canvas>
+
+		<div id="input">
+			<input type="number" min="0" id="gridWidth" value="12"></input>
+			<input type="number" min="0" id="gridHeight" value="6"></input>
+			<input type="text" id="filename" placeholder="new path.txt"></input>
+			<button name="save" onclick="save()">Save</button>
+			<button name="delete" onclick="remove()">Delete</button>
+			<button name="clear" onclick="clearPath()">Clear All</button>
 		</div>
+	</div>
 
 
 
-	</body>
+</body>
+
 </html>

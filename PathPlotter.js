@@ -5,7 +5,7 @@ var mouseY = 0;
 var mousedown = false;
 var ctx;
 var backgroundImg = new Image();
-backgroundImg.src = "SkillsChallengeField.jpg";
+backgroundImg.src = "field20.png";
 
 var path = [];
 var mouseReleased = true;
@@ -16,15 +16,18 @@ var snapNodesToGrid = false;
 var gridWidth;
 var gridHeight;
 
+var rect;
+
 function start() {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
     PIXELS_PER_INCH = backgroundImg.width / 360;
 
+    rect = canvas.getBoundingClientRect();
     document.addEventListener('mousemove', (event) => {
-        mouseX = event.clientX-17;
-        mouseY = event.clientY-17;
+        mouseX = event.clientX-rect.left;
+        mouseY = event.clientY-rect.top;
 
         if (snapNodesToGrid) {
             gridWidth = document.getElementById("gridWidth").value;
@@ -37,11 +40,11 @@ function start() {
         }
     });
 
-    document.addEventListener('mousedown', (event) => {
+    canvas.addEventListener('mousedown', (event) => {
         mousedown = true;
     });
 
-    document.addEventListener('mouseup', (event) => {
+    canvas.addEventListener('mouseup', (event) => {
         mousedown = false;
     });
 
@@ -164,6 +167,7 @@ function update() {
     //draw all
     ctx.drawImage(backgroundImg, 0, 0);
 
+
     if (path.length > 0) {
         ctx.beginPath();
         ctx.fillStyle = "BLACK";
@@ -185,6 +189,9 @@ function update() {
 
     ctx.fillStyle = "YELLOW"
     ctx.fillRect(mouseX-5, mouseY-5, 10, 10);
+
+    rect = canvas.getBoundingClientRect();
+
 }
 
 setInterval(update, 1000 / FPS);
